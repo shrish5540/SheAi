@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SheAI</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta  name="keywords" />
+    <meta  name="description" />
+
+    <!-- Favicon -->
+    <link href="{{url_for('static',filename='img/favicon.ico')}}" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    href="{{url_for('static',filename='css/pcos.css')}}"
+    rel="stylesheet"
+  />
+    <!-- Icon Font Stylesheet -->
+   
+    <link
+      href="{{url_for('static',filename='css/pcos.css')}}"
+      rel="stylesheet"
+    />
+   
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="{{url_for('static',filename='css/owl.carousel.min.css')}}"
+      rel="stylesheet"
+    />
+
+    <link
+      href="{{url_for('static',filename='css/animate.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/tempusdominus-bootstrap-4.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/twentytwenty.css')}}"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link
+      href="{{url_for('static',filename='css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+
+    <!-- Template Stylesheet -->
+    <link
+      href="{{url_for('static',filename='css/style.css')}}"
+      rel="stylesheet"
+    />
+    <style>
+     
+    #form-inline{
+      align-items: center;
+    }
+      .btn-container {
+        background: rgb(227, 157, 212);
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+        border-radius: 5px;
+        padding: 10px;
+      }
+  
+      .head {
+        font-weight: bolder;
+      }
+  
+      .btn-primary {
+  border-color: #de5499 !important; /* Fixed redundant border color */
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #de5499 !important;
+  padding: 5px;
+}
+
+  
+      label {
+        width: 50%;
+      }
+  
+      #predict {
+        display: block;
+      }
+  
+      .form-group {
+        padding: 2px;
+      }
+    </style>
+  </head>
+
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-primary m-1" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark m-1" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary m-1" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
+      <div class="row gx-0">
+        <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+          <div class="d-inline-flex align-items-center">
+           
+          </div>
+        </div>
+        <div class="col-md-6 text-center text-lg-end">
+          <div
+            class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5"
+          >
+            <div class="me-3 pe-3 border-end py-2">
+              <p class="m-0">
+                <i class="fa fa-envelope-open me-2"></i>info@example.com
+              </p>
+            </div>
+            <div class="py-2">
+              <p class="m-0">
+                <i class="fa fa-phone-alt me-2"></i>+012 345 6789
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <nav
+      class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
+    >
+      <a href="{{url_for('index')}}" class="navbar-brand p-0">
+        <h1 class="m-0 text-primary">
+          <i class="fa fa- me-2">SheAI</i>
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+          <a href="{{url_for('index')}}" class="nav-item nav-link active"
+            >Home</a
+          >
+          <a href="{{url_for('about')}}" class="nav-item nav-link">About</a>
+          <a href="{{url_for('service')}}" class="nav-item nav-link">Service</a>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Pages</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{{url_for('price')}}" class="dropdown-item"
+                >Pricing Plan</a
+              >
+              <a href="{{url_for('team')}}" class="dropdown-item"
+                >Our Doctors</a
+              >
+              <a href="{{url_for('testimonial')}}" class="dropdown-item"
+                >Testimonial</a
+              >
+              <a href="#" class="dropdown-item">Chat with HER🌸!</a>
+            </div>
+          </div>
+          <a href="{{url_for('contact')}}" class="nav-item nav-link">Contact</a>
+        </div>
+        <button
+          type="button"
+          class="btn text-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#searchModal"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+        <a
+          href="{{ url_for('run_chatbot') }}"
+          class="btn btn-primary py-2 px-4 ms-3"
+          >Chat with HER🌸!</a
+        >
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, 0.7)">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn bg-white btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body d-flex align-items-center justify-content-center"
+          >
+            <div class="input-group" style="max-width: 600px">
+              <input
+                type="text"
+                class="form-control bg-transparent border-primary p-3"
+                placeholder="Type search keyword"
+              />
+              <button class="btn btn-primary px-4">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary py-5 hero-header mb-5">
+      <div class="row py-3">
+        <div class="col-12 text-center">
+          <h1 class="display-3 text-white animated zoomIn">SheAI</h1>
+          <a href="" class="h4 text-white">24x7</a>
+          <i class="far fa-circle text-white px-2"></i>
+          <a href="" class="h4 text-white">Here for you</a>
+        </div>
+      </div>
+    </div>
+    <!-- Hero End -->
+
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-7">
+            <div class="section-title mb-4">
+              <h5
+                class="position-relative d-inline-block text-primary text-uppercase"
+              >
+                SheAI:
+              </h5>
+              <h1 class="display-5 mb-0">
+                Trusted Partner for your well being
+              </h1>
+            </div>
+            <h1><u>Breast Cancer Detection</u></h1>
+            <br />
+            <h2><u>Diagnostic Information</u></h2>
+            <table border="2" cellspacing="2">
+              <tr>
+                <th></th>
+                <th style="text-align: center; color: rgb(76, 19, 86)">
+                  Feature Name
+                </th>
+                <th style="text-align: center; color: rgb(76, 19, 86)">
+                  Description
+                </th>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Clump Thickness
+                </td>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Measure of clump thickness
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Higher clump thickness indicates more irregular cell structures, often associated with malignancy.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">Uniform Cell Size</td>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Uniformity of cell size
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Tumors tend to have irregular cell sizes, while benign cells show more uniformity.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Uniform Cell Shape
+                </td>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Uniformity of cell shape
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Irregular cell shapes are common in malignant tumors.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Marginal Adhesion
+                </td>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Adhesion of cells to each other
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Cancerous cells show reduced adhesion, causing them to spread.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Single Epithelial Size
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Epithelial cell size
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Malignant tumors often show abnormal epithelial cell size.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Bare Nuclei
+                </td>
+                <td style="color: rgb(76, 19, 86)">Presence of bare nuclei</td>
+                <td style="color: rgb(76, 19, 86)">
+                  Malignant tumors often show more visible nuclei without surrounding cells.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Bland Chromatin
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Chromatin pattern
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Cancerous cells often exhibit irregular and coarse chromatin.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Normal Nucleoli
+                </td>
+                <td style="color: rgb(76, 19, 86)">Nucleoli pattern</td>
+                <td style="color: rgb(76, 19, 86)">
+                  Abnormal nucleoli can be a sign of malignancy.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Mitotic Index
+                </td>
+                <td style="color: rgb(76, 19, 86)">Cell division rate</td>
+                <td style="color: rgb(76, 19, 86)">
+                  Higher mitotic rates indicate rapid cell division, often seen in tumors.
+                </td>
+              </tr>
+            </table>
+            <br />
+            <h4 style="color: rgb(76, 19, 86)"><u>NOTE</u></h4>
+            <p style="color: rgb(76, 19, 86)">
+              Use the metric system to input the data.
+            </p>
+            <br />
+            <h4 style="color: rgb(76, 19, 86)">Breast Cancer</h4>
+            <br />
+            
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="head">Breast Cancer Detection</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="btn-container">
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+             
+           
+
+          <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predictcancer') }}" method="post" class="form-inline">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{ url_for('predictcancer') }}">
+                        <img class="image" src="{{url_for('static', filename = 'img/service-4.png')}}" width="100%" />
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="container">
+                        <h4>Enter Cell Details</h4>
+                        <!-- Form fields go here -->
+                        <div class="form-group">
+                            <label for="clump_thickness">Clump Thickness</label>
+                            <input type="text" class="form-control" name="clump_thickness" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="uniform_cell_size">Uniform Cell size</label>
+                            <input type="text" class="form-control" name="uniform_cell_size" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="uniform_cell_shape">Uniform Cell shape</label>
+                            <input type="text" class="form-control" name="uniform_cell_shape" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="marginal_adhesion">Marginal Adhesion</label>
+                            <input type="text" class="form-control" name="marginal_adhesion" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="single_epithelial_size">Single Epithelial Cell Size</label>
+                            <input type="text" class="form-control" name="single_epithelial_size" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="bare_nuclei">Bare Nuclei</label>
+                            <input type="text" class="form-control" name="bare_nuclei" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="bland_chromatin">Bland Chromatin</label>
+                            <input type="text" class="form-control" name="bland_chromatin" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="normal_nucleoli">Normal Nucleoli</label>
+                            <input type="text" class="form-control" name="normal_nucleoli" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="mitoses">Mitoses</label>
+                            <input type="text" class="form-control" name="mitoses" required="required" />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Predict Cancer</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        
+        <br />
+        <center>
+          <h4 style="background:#de5499">{{prediction_text}}</h4>
+        </center>
+        <br />
+    </div>
+    <!-- Newsletter End -->
+
+   
+       
+    <div class="container-fluid text-light py-4" style="background: #051225">
+      <div class="container">
+        <div class="row g-0">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-md-0">
+              &copy; <a class="text-white border-bottom" href="#">SheAI</a>.
+              All Rights Reserved.
+            </p>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static',filename = 'js/wow.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/easing.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/owl.carousel.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/moment.min.js')}}"></script>
+    <script src="{{url_for('static',filename ='js/moment-timezone.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery.event.move.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery.twentytwenty.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+  </body>
+</html>

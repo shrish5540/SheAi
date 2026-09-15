@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SheAI</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta  name="keywords" />
+    <meta  name="description" />
+
+    <!-- Favicon -->
+    <link href="{{url_for('static',filename='img/favicon.ico')}}" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+   
+    <link
+      href="{{url_for('static',filename='css/pcos.css')}}"
+      rel="stylesheet"
+    />
+   
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link
+      href="{{url_for('static',filename='css/owl.carousel.min.css')}}"
+      rel="stylesheet"
+    />
+
+    <link
+      href="{{url_for('static',filename='css/animate.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/tempusdominus-bootstrap-4.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='css/twentytwenty.css')}}"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link
+      href="{{url_for('static',filename='css/bootstrap.min.css')}}"
+      rel="stylesheet"
+    />
+
+    <!-- Template Stylesheet -->
+    <link
+      href="{{url_for('static',filename='css/style.css')}}"
+      rel="stylesheet"
+    />
+  </head>
+
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-primary m-1" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark m-1" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary m-1" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+  
+
+    <!-- Navbar Start -->
+    <nav
+      class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
+    >
+      <a href="{{url_for('index')}}" class="navbar-brand p-0">
+        <h1 class="m-0 text-primary">
+          <i class="fa fa- me-2">SheAI</i>
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+          <a href="{{url_for('index')}}" class="nav-item nav-link active"
+            >Home</a
+          >
+          <a href="{{url_for('about')}}" class="nav-item nav-link">About</a>
+          <a href="{{url_for('service')}}" class="nav-item nav-link">Service</a>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Pages</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{{url_for('price')}}" class="dropdown-item"
+                >Pricing Plan</a
+              >
+              <a href="{{url_for('team')}}" class="dropdown-item"
+                >Our Doctors</a
+              >
+              <a href="{{url_for('testimonial')}}" class="dropdown-item"
+                >Testimonial</a
+              >
+              <a href="#" class="dropdown-item">Chat with HER🌸!</a>
+            </div>
+          </div>
+          <a href="{{url_for('contact')}}" class="nav-item nav-link">Contact</a>
+        </div>
+        <button
+          type="button"
+          class="btn text-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#searchModal"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+        <a
+          href="{{ url_for('run_chatbot') }}"
+          class="btn btn-primary py-2 px-4 ms-3"
+          >Chat with HER🌸!</a
+        >
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, 0.7)">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn bg-white btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body d-flex align-items-center justify-content-center"
+          >
+            <div class="input-group" style="max-width: 600px">
+              <input
+                type="text"
+                class="form-control bg-transparent border-primary p-3"
+                placeholder="Type search keyword"
+              />
+              <button class="btn btn-primary px-4">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary py-5 hero-header mb-5">
+      <div class="row py-3">
+        <div class="col-12 text-center">
+          <h1 class="display-3 text-white animated zoomIn">SheAI</h1>
+          <a href="" class="h4 text-white">24x7</a>
+          <i class="far fa-circle text-white px-2"></i>
+          <a href="" class="h4 text-white">Here for you</a>
+        </div>
+      </div>
+    </div>
+    <!-- Hero End -->
+
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-7">
+            <div class="section-title mb-4">
+              <h5
+                class="position-relative d-inline-block text-primary text-uppercase"
+              >
+                SheAI:
+              </h5>
+              <h1 class="display-5 mb-0">
+                Trusted Partner for your well being
+              </h1>
+            </div>
+          
+             
+            <h1><u>Predict PCOS</u></h1>
+            <br />
+            <h2><u>Hormonal Information</u></h2>
+            <table border="2" cellspacing="2">
+              <tr>
+                <th></th>
+                <th style="text-align: center; color: rgb(76, 19, 86)">
+                  Hormone Name
+                </th>
+                <th style="text-align: center; color: rgb(76, 19, 86)">
+                  Description
+                </th>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  FSH
+                </td>
+                <td style="text-align: centre; color: rgb(76, 19, 86)">
+                  Follicle Stimulating Hormone
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Women with PCOS often do not ovulate on a monthly basis due
+                  to low FSH levels(6 mlU/ml)
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">LH</td>
+                <td style="text-align: centre; color: rgb(76, 19, 86)">
+                  Luteinizing hormone
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Women with PCOS often have high levels of LH secretion(18
+                  mlU/ml).
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  TSH
+                </td>
+                <td style="text-align: centre; color: rgb(76, 19, 86)">
+                  Thyroid Stimulating Hormone
+                </td>
+                <td style="color: rgb(76, 19, 86)">
+                  Elevated TSH (indicating hypothyroid) in PCOS patients
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  AMH
+                </td>
+                <td style="color: rgb(76, 19, 86)">Anti Mullerian Hormone</td>
+                <td style="color: rgb(76, 19, 86)">
+                  Women with PCOS often have elevated AMH levels. At any age,
+                  a score over 48 pmol/L is considered high and could be a
+                  sign of PCOS.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  PRL
+                </td>
+                <td style="color: rgb(76, 19, 86)">Prolactin level</td>
+                <td style="color: rgb(76, 19, 86)">
+                  Patients with PCOS can have mildly elevated prolactin levels
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  Vit D3
+                </td>
+                <td style="color: rgb(76, 19, 86)">Vitamin D3</td>
+                <td style="color: rgb(76, 19, 86)">
+                  The prevalence of vitamin D deficiency in women with PCOS is
+                  about 67-85%
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  PRG
+                </td>
+                <td style="color: rgb(76, 19, 86)">Progestrone Level</td>
+                <td style="color: rgb(76, 19, 86)">
+                  Women with polycystic ovary syndrome (PCOS) need higher
+                  levels of progesterone to slow the frequency of GnRH pulse
+                  secretion, resulting in insufficient plasma FSH synthesis
+                  and persistent plasma LH stimulation of ovarian androgens.
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: rgb(76, 19, 86)">
+                  RBS
+                </td>
+                <td style="color: rgb(76, 19, 86)">Random Blood Sugar</td>
+                <td style="color: rgb(76, 19, 86)">
+                  As many as 30% to 40% of women who have PCOS also have
+                  insulin resistance a condition that leads to high glucose
+                  levels and the potential for pre-diabetes and type 2
+                  diabetes.
+                </td>
+              </tr>
+            </table>
+            <br />
+        </div>
+            <h4 style="color: rgb(76, 19, 86)"><u>NOTE</u></h4>
+            <p style="color: rgb(76, 19, 86)">
+              For questions where you need to answer Yes or No, input 1 as Yes
+              and 0 as No. Use metric system to input the data
+            </p>
+            <br />
+      </div>
+            <h4 style="color: rgb(76, 19, 86)">Predicting PCOS</h4>
+        </div>
+  </div>
+      
+    <div class="f-container">
+    <div  class="f-group" >
+      <form action="{{ url_for('predict')}}" method="post">
+          <input type="text" name="Age" placeholder="Whats your Age?" required="required" />
+          <input type="text" name="Weight" placeholder="Weight" required="required" />
+          <input type="text" name="Height" placeholder="Height" required="required" />
+          <input type="text" name="BMI" placeholder="BMI" required="required" />
+          <input type="text" name="PulseRate" placeholder="PulseRate" required="required" />
+          <input type="text" name="Cycle(R/I)" placeholder="Irregular Periods?" required="required" />
+          <input type="text" name="RR" placeholder="Respiration Rate" required="required" />
+          <input type="text" name="Pregnant" placeholder="Ever been pregnant?" required="required" />
+          <input type="text" name="No. of Abortions" placeholder="No. of Abortions" required="required" />
+          <input type="text" name="FSH" placeholder="FSH Level?" required="required" />
+          <input type="text" name="LH" placeholder="LH Level?" required="required" />
+          <input type="text" name="FSH_LH_ratio" placeholder="FHS:LH ratio" required="required" />
+          <input type="text" name="W_H_ratio" placeholder="Waist:Hip Ratio" required="required" />
+          <input type="text" name="TSH" placeholder="TSH level?" required="required" />
+          <input type="text" name="AMH" placeholder="AMH level?" required="required" />
+          <input type="text" name="PRL" placeholder="PRL level?" required="required" />
+          <input type="text" name="VitD3" placeholder="Vitamin d3 level?" required="required" />
+          <input type="text" name="PRG" placeholder="PRG level?" required="required" />
+          <input type="text" name="RBS" placeholder="RBS level?" required="required" />
+          <input type="text" name="Weight_gain" placeholder="weight increased?" required="required" />
+          <input type="text" name="hair_growth" placeholder="abnormal Hair Growth?" required="required" />
+          <input type="text" name="Skin_darkening" placeholder="Skin Darkened?" required="required" />
+          <input type="text" name="Hair_loss" placeholder="Noticed any Hairfall?" required="required" />
+          <input type="text" name="Pimples" placeholder="Increase in Pimples?" required="required" />
+          <input type="text" name="Fast_food" placeholder="Do you consume Fast food?" required="required" />
+          <input type="text" name="Reg_exercise" placeholder="Exercise regularly?" required="required" />
+          <input type="text" name="BP_systolic" placeholder="Systolic Blood Pressure" required="required" />
+          <input type="text" name="BP_diastolic" placeholder="Diastolic Blood Pressure" required="required" />
+          <input type="text" name="Follicle_count" placeholder="Count of Follicles" required="required" /><br />
+          <p></p>
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+              <b>Predict (fingers crossed 🤞)</b>
+          </button>
+      </form>
+    </div>
+  </div>
+
+<div>
+  <div>
+  
+              <br />
+              <br />
+              <h4
+                class="text-body fst-italic mb-4"
+                ,
+                style="color: rgb(76, 19, 86)"
+              >
+                {{prediction_text}}
+              </h4>
+          
+   
+        <h4 style="color: rgb(76, 19, 86)"><u>NOTE</u></h4>
+        <ul>
+          <li style="color: rgb(76, 19, 86)">Systolic blood pressure</li>
+          <p style="color: rgb(76, 19, 86)">
+            Is the pressure when the heart beats – while the heart muscle is
+            contracting (squeezing) and pumping oxygen-rich blood into the blood
+            vessels.
+          </p>
+          <li style="color: rgb(76, 19, 86)">Diastolic blood pressure</li>
+          <p style="color: rgb(76, 19, 86)">
+            Is the pressure on the blood vessels when the heart muscle relaxes.
+            The diastolic pressure is always lower than the systolic pressure.
+          </p>
+          <li style="color: rgb(76, 19, 86)">
+            Follicle Count(both Left and Right)
+          </li>
+          <p style="color: rgb(76, 19, 86)">
+            In polycystic ovary syndrome, abnormal hormone levels prevent
+            follicles from growing and maturing to release egg cells. Instead,
+            these immature follicles accumulate in the ovaries. Affected women
+            can have 12 or more of these follicles. The number of these
+            follicles usually decreases with age.
+          </p>
+        </ul>
+        <h4 class="text-body fst-italic mb-4">
+          Dedicated to providing comprehensive and personalized healthcare
+          solutions for women at every stage of life
+        </h4>
+      </div>
+    </div>
+
+    <!-- About End -->
+
+    <!-- Newsletter Start -->
+    <div
+      class="container-fluid position-relative pt-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="z-index: 1"
+    >
+      <div class="container">
+        <div class="bg-primary p-5">
+          <form class="mx-auto" style="max-width: 600px">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control border-white p-3"
+                placeholder="Your Email"
+              />
+              <button class="btn btn-dark px-4">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Newsletter End -->
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid bg-dark text-light py-5 wow fadeInUp"
+      data-wow-delay="0.3s"
+      style="margin-top: -75px"
+    >
+      <div class="container pt-5">
+        <div class="row g-5 pt-4">
+          <div class="col-lg-3 col-md-6">
+            <h3 class="text-white mb-4">Quick Links</h3>
+            <div class="d-flex flex-column justify-content-start">
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Home</a
+              >
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a
+              >
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Our
+                Services</a
+              >
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Latest
+                Blog</a
+              >
+              <a class="text-light" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Contact
+                Us</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h3 class="text-white mb-4">Popular Links</h3>
+            <div class="d-flex flex-column justify-content-start">
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Home</a
+              >
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a
+              >
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Our
+                Services</a
+              >
+              <a class="text-light mb-2" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Latest
+                Blog</a
+              >
+              <a class="text-light" href="#"
+                ><i class="bi bi-arrow-right text-primary me-2"></i>Contact
+                Us</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h3 class="text-white mb-4">Get In Touch</h3>
+            <p class="mb-2">
+              <i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New
+              York, USA
+            </p>
+            <p class="mb-2">
+              <i class="bi bi-envelope-open text-primary me-2"></i
+              >info@example.com
+            </p>
+            <p class="mb-0">
+              <i class="bi bi-telephone text-primary me-2"></i>+012 345 67890
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h3 class="text-white mb-4">Follow Us</h3>
+            <div class="d-flex">
+              <a
+                class="btn btn-lg btn-primary btn-lg-square rounded me-2"
+                href="#"
+                ><i class="fab fa-twitter fw-normal"></i
+              ></a>
+              <a
+                class="btn btn-lg btn-primary btn-lg-square rounded me-2"
+                href="#"
+                ><i class="fab fa-facebook-f fw-normal"></i
+              ></a>
+              <a
+                class="btn btn-lg btn-primary btn-lg-square rounded me-2"
+                href="#"
+                ><i class="fab fa-linkedin-in fw-normal"></i
+              ></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"
+                ><i class="fab fa-instagram fw-normal"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid text-light py-4" style="background: #051225">
+      <div class="container">
+        <div class="row g-0">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-md-0">
+              &copy; <a class="text-white border-bottom" href="#">SheAI</a>.
+              All Rights Reserved.
+            </p>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static',filename = 'js/wow.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/easing.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/owl.carousel.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/moment.min.js')}}"></script>
+    <script src="{{url_for('static',filename ='js/moment-timezone.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery.event.move.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery.twentytwenty.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+  </body>
+</html>

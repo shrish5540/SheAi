@@ -1,0 +1,162 @@
+/* Chat Input Container */
+
+/* User Message */
+.user-message {
+  align-self: flex-end;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 15px 15px 0 15px;
+  margin: 5px 0;
+  max-width: 75%;
+  font-size: 15px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Bot Message */
+.bot-message {
+  align-self: flex-start;
+  background: #f0f0f0;
+  padding: 12px;
+  border-radius: 15px 15px 15px 0;
+  margin: 5px 0;
+  max-width: 75%;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 3px;
+  background: #bbb;
+  border-radius: 50%;
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+.typing-indicator:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Smooth Text Appearance */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input Box */
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: #000;
+  margin-top: 12px;
+}
+
+/* Input Field */
+input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px; /* Less rounded */
+  outline: none;
+  font-size: 14px;
+  background: #e3f8fd; /* Light blue background */
+  color: #065a73; /* Deep blue text */
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+/* Focus Effect */
+input[type="text"]:focus {
+  background: #ffffff;
+  border: 2px solid #2193b0; /* Darker blue border on focus */
+  box-shadow: 0 0 6px rgba(33, 147, 176, 0.4);
+}
+
+/* Send Button */
+#sendBtn {
+  padding: 10px;
+  border: none;
+  align-self: flex-start;
+  background: linear-gradient(to right, #6dd5ed, #2193b0); /* Blue gradient */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px; /* Less rounded */
+  width: 52px;
+  height: 52px;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(33, 147, 176, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+#sendBtn:hover {
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  box-shadow: 0 6px 12px rgba(33, 147, 176, 0.5);
+}
+
+.pic {
+  z-index: -1;
+  margin-left: 50%;
+}
+/* Click Effect */
+button:active {
+  transform: scale(0.95);
+}
+
+/* Floating Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(33, 147, 176, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(33, 147, 176, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(33, 147, 176, 0.4);
+  }
+}
+
+button.pulsing {
+  animation: pulse 1.5s infinite;
+}
+
+/* Icon inside Button */
+button::after {
+  content: "➤";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Global Styles */

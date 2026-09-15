@@ -3,7 +3,7 @@
 ## Overview
 ✨ **She-AI Assist** is an AI-driven platform designed to provide women with personalized health insights. By utilizing advanced machine learning models 🤖, it tackles critical health issues like pregnancy complications 🤰, PCOS (Polycystic Ovary Syndrome), and breast cancer 🎗️. The platform aims to improve access to timely medical support and empower women with informed healthcare decisions 💪.
 
-![HERAI](https://github.com/user-attachments/assets/15ff0faf-36ce-4b3c-b83f-bc11e775f064)
+![SheAI](https://github.com/user-attachments/assets/15ff0faf-36ce-4b3c-b83f-bc11e775f064)
 
 ## The Challenge
 🌍 In many regions, especially low-income areas, women face significant barriers to healthcare access. Over 60% of women are unable to receive the care they need, leading to preventable complications during pregnancy 🤰, undiagnosed PCOS 🌸, and late-stage cancer diagnoses 🎗️. This gap highlights the urgent need for an AI-powered solution that can provide accurate, timely health assistance 💡.
